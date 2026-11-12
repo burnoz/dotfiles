@@ -85,7 +85,7 @@ include /etc/sway/config-vars.d/*
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+x exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -149,7 +149,7 @@ include /etc/sway/config-vars.d/*
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+q layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -253,3 +253,10 @@ input "type:pointer" {
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+bindsym $mod+Shift+e exec kitty -e yazi
+
+bindsym $mod+e exec thunar
+for_window [app_id="thunar"] floating enable, resize set 900 600
+
+bindsym $mod+Shift+t exec ~/.config/sway/scripts/toggle-touch.sh
